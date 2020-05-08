@@ -22,6 +22,7 @@
 
         <!-- Custom styles for this template-->
         <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/my-sweet-css.css') }}" rel="stylesheet">
         
         <!-- Styles -->
         <!-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> -->
@@ -48,5 +49,6 @@
 
         <!-- Custom scripts for all pages-->
         <script src="{{ asset('js/sb-admin-2.min.js') }}" defer></script>
+        <script src="{{ asset('js/my-sweet-js.js') }}" defer></script>
     </body>
 </html>

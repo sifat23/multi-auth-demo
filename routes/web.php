@@ -30,7 +30,14 @@ Route::prefix('/admin')->group(function () {
     Route::post('/logout', 'Auth\AdminLoginController@logout')->name('admin-logout');
     Route::get('/register', 'AdminController@create')->name('admin-register');
     Route::post('/store', 'AdminController@store')->name('store-admin');
+
+
+    Route::get('/classes/add' , 'ClassroomController@create')->name('admin-class-create');
+    Route::post('/classes/store' , 'ClassroomController@store')->name('admin-class-store');
 //     Route::get('/list', 'AdminController@showList')->name('list-admin');
+
+    Route::get('/lessons/add' , 'LessonController@create')->name('admin-lesson-create');
+    Route::post('/lessons/store' , 'LessonController@store')->name('admin-lesson-store');
 
 });
 

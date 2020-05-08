@@ -15,8 +15,7 @@
 
                     You are logged in as User!
                 </div>
-                @component ('components.who')
-                @endcomponent
+               
             </div>
         </div>
     </div>

@@ -1,0 +1,15 @@
+#error-box {
+    position: absolute;
+    z-index: 1099;
+    border-radius: 10px;
+    top: 70px;
+    display: none;
+    right: 10rem;
+    background: #e74a3b;
+    padding: 1rem;
+    color: aliceblue;
+}
+.error-title {
+    text-align: center;
+    font-weight: bold;
+}
