@@ -17,12 +17,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// //middleware for admin and user
+//middleware for admin and user
 Route::get('/home', 'HomeController@site');
 Route::post('/logout', 'Auth\loginController@logout')->name('logout');
 
 
-// //admin controller route
+//admin controller route
 Route::prefix('/admin')->group(function () {
     Route::get('/', 'AdminController@index')->name('admin');
     Route::get('/login', 'Auth\AdminLoginController@create')->name('admin-login');
@@ -38,6 +38,13 @@ Route::prefix('/admin')->group(function () {
 
     Route::get('/lessons/add' , 'LessonController@create')->name('admin-lesson-create');
     Route::post('/lessons/store' , 'LessonController@store')->name('admin-lesson-store');
+
+    Route::get('/exam/add', 'ExamController@create')->name('admin-exam-create');
+    Route::post('/exam/add', 'ExamController@store')->name('admin-exam-store');
+    Route::get('/exams', 'ExamController@index')->name('admin-exam-list');
+
+    Route::get('/exams/{id}', 'QuestionController@index')->name('admin-exam-questions');
+    Route::post('/exams/questions/add', 'QuestionController@store')->name('admin-exam-questions-store');
 
 });
 

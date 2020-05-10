@@ -6,4 +6,9 @@ $(document).ready(function(){
         }, 5000);
     }
     
+
+    $('#add-question').click(function() {
+        console.log("working");
+        $('#question-section').append('<div class="form-group"><input type="text" class=="form-control" placeholder="Question "></div>');
+    })
 });
