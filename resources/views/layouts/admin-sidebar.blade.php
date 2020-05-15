@@ -104,7 +104,7 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="{{ route('admin-class-create') }}">Add Class</a>
             <a class="collapse-item" href="{{ route('admin-lesson-create') }}">Add Lessons</a>
-            <a class="collapse-item" href="register.html">Manage Class</a>
+            <a class="collapse-item" href="{{ route('admin-lesson-list') }}">Manage Class</a>
           </div>
         </div>
       </li>

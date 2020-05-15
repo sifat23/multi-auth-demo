@@ -20,6 +20,9 @@ Route::get('/', function () {
 //middleware for admin and user
 Route::get('/home', 'HomeController@site');
 Route::post('/logout', 'Auth\loginController@logout')->name('logout');
+Route::get('/test', 'TestController@index')->name('test.show');
+Route::get('/test/{id}', 'TestController@show');
+
 
 
 //admin controller route
@@ -34,10 +37,11 @@ Route::prefix('/admin')->group(function () {
 
     Route::get('/classes/add' , 'ClassroomController@create')->name('admin-class-create');
     Route::post('/classes/store' , 'ClassroomController@store')->name('admin-class-store');
-//     Route::get('/list', 'AdminController@showList')->name('list-admin');
+    
 
     Route::get('/lessons/add' , 'LessonController@create')->name('admin-lesson-create');
     Route::post('/lessons/store' , 'LessonController@store')->name('admin-lesson-store');
+    Route::get('/lesson/list', 'LessonController@show')->name('admin-lesson-list');
 
     Route::get('/exam/add', 'ExamController@create')->name('admin-exam-create');
     Route::post('/exam/add', 'ExamController@store')->name('admin-exam-store');
@@ -49,6 +53,6 @@ Route::prefix('/admin')->group(function () {
 });
 
 
-
+Route::get('/storage/{link}','LessonController@test');
 
 //site controller route

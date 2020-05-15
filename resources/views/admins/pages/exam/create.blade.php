@@ -35,15 +35,5 @@
         </button>
     </div>
 </div>
-    <script type="text/javascript">
-                @if($errors->any())
-                $(document).ready(function(){
-
-                    $('#click').show();
-        
     
-                });
-                    
-                @endif
-    </script>
 @endsection

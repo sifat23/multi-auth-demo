@@ -10,9 +10,9 @@ class Classroom extends Model
         'class_name', 'class_genre', 'class_code',
     ];
 
-    public function lessons()
-    {
-    	return $this->hasMany(Lesson::class);
-    }
+    // public function lessons()
+    // {
+    // 	return $this->hasMany(Lesson::class);
+    // }
 
 }

@@ -27,7 +27,7 @@
         <!-- Styles -->
         <!-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> -->
     </head>
-    <body id="page-top">
+    <body oncontextmenu="return false;" id="page-top">
         <div id="wrapper">
             
             @include('layouts.admin-sidebar')

@@ -42,21 +42,38 @@ class LessonController extends Controller
             'lesson_code' => ['required'],
             'class_id' => ['required'],
             'lesson_description' => ['required'],
-            'lesson_file' => 'required|file|max:1024',
+            'lesson_file' => 'required|file',
         ]);
 
-        if ($file = move('videos',$request['lesson_name'])) {
+        if($request->hasFile('lesson_file')) {
+            $filename= $request->file('lesson_file')->getClientOriginalName();
+            $filesize = $request->file('lesson_file')->getClientSize();
+            $file_path = $request->file('lesson_file')->move('storage/', $filename);
+            
             $lesson = new Lesson();
             $lesson->lesson_name = $request['lesson_name'];
-            $lesson->name = $request['lesson_name'];
-            $lesson->name = $request['lesson_name'];
-            $lesson->name = $request['lesson_name'];
-            $lesson->name = $request['lesson_name'];
+            $lesson->lesson_code = $request['lesson_code'];
+            $lesson->lesson_description = $request['lesson_description'];
+            $lesson->class_id = $request['class_id'];
+            $lesson->lesson_path = $file_path;
+            $lesson->save();
+
+            return redirect()->route('admin-lesson-list');
         }
 
-        if($validator->fails()) {
-            return Redirect::back()->withErrors($validator);
-        }
+        // if ($file = move('videos',$request['lesson_name'])) {
+        //     $lesson = new Lesson();
+        //     $lesson->lesson_name = $request['lesson_name'];
+        //     $lesson->lesson_code = $request['lesson_code'];
+        //     $lesson->lesson_description = $request['lesson_description'];
+        //     $lesson->class_id = $request['class_id'];
+        //     $lesson->lesson_path = $request['lesson_path'];
+        // }
+        
+       
+        // if($validator->fails()) {
+        //     return Redirect::back()->withErrors($validator);
+        // }
       
 
     }
@@ -69,7 +86,8 @@ class LessonController extends Controller
      */
     public function show(Lesson $lesson)
     {
-        //
+        $lessons = Lesson::all();
+        return view('admins.pages.lesson.list')->with(compact('lessons'));
     }
 
     /**
@@ -93,6 +111,10 @@ class LessonController extends Controller
     public function update(Request $request, Lesson $lesson)
     {
         //
+    }
+
+    public function test($link) {
+        return $link;
     }
 
     /**
